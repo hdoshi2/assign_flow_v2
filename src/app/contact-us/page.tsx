@@ -1,0 +1,11 @@
+import { ContactView } from 'src/sections/contact/view';
+
+// ----------------------------------------------------------------------
+
+export const metadata = {
+  title: 'Contact us',
+};
+
+export default function Page() {
+  return <ContactView />;
+}

@@ -1,0 +1,57 @@
+/**
+*
+* All vars in:
+* src/theme/overrides/components/css-baseline.tsx
+*
+*/
+.apexcharts-canvas {
+  /**
+  * Tooltip
+  */
+  .apexcharts-tooltip {
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+    color: rgb(var(--palette-text-primary));
+    box-shadow: var(--custom-shadows-dropdown);
+    background-color: rgba(var(--palette-background-default), 0.8);
+  }
+  .apexcharts-xaxistooltip {
+    border-radius: 10px;
+    border-color: transparent;
+    backdrop-filter: blur(6px);
+    color: rgb(var(--palette-text-primary));
+    box-shadow: var(--custom-shadows-dropdown);
+    background-color: rgba(var(--palette-background-default), 0.8);
+    &::before {
+      border-bottom-color: rgba(var(--palette-grey-500), 0.16);
+    }
+    &::after {
+      border-bottom-color: rgba(var(--palette-background-default), 0.8);
+    }
+  }
+  .apexcharts-tooltip-title {
+    font-weight: 700;
+    text-align: center;
+    color: rgb(var(--palette-text-secondary));
+    background-color: rgb(var(--palette-background-neutral));
+  }
+  /**
+  * Legend
+  */
+  .apexcharts-legend {
+    padding: 0;
+  }
+  .apexcharts-legend-series {
+    align-items: center;
+    display: inline-flex !important;
+  }
+  .apexcharts-legend-marker {
+    margin-right: 6px;
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+  }
+  .apexcharts-legend-text {
+    line-height: 18px;
+  }
+}

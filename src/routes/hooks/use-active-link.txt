@@ -1,0 +1,44 @@
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+
+// ----------------------------------------------------------------------
+
+type UseActiveLinkReturnType = boolean;
+
+export function useActiveLink(itemPath: string, deep: boolean = true): UseActiveLinkReturnType {
+  const pathname = usePathname();
+
+  const [paramsUrl, setParamsURL] = useState('');
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search).toString();
+
+    setParamsURL(searchParams);
+  }, [pathname]);
+
+  /* Start check */
+  const notValid = itemPath.startsWith('#') || itemPath.includes('http');
+
+  if (notValid) {
+    return false;
+  }
+  /* End check */
+
+  const currentPathname = getCurrentPathname(paramsUrl ? `${pathname}?${paramsUrl}` : pathname);
+
+  const normalActive = currentPathname === itemPath;
+  const deepActive = currentPathname.includes(itemPath);
+
+  return deep ? deepActive : normalActive;
+}
+
+// ----------------------------------------------------------------------
+
+export function getCurrentPathname(pathname: string): string {
+  /* Remove last slash */
+  if (pathname !== '/' && pathname.endsWith('/')) {
+    return pathname.slice(0, -1);
+  }
+
+  return pathname;
+}
