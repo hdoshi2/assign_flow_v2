@@ -62,12 +62,24 @@ export default function FirebaseRegisterView() {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
+      console.log('in onsubmit', register, data);
       await register?.({
         email: data.email,
         password: data.password,
         firstName: data.firstName,
         lastName: data.lastName,
       });
+
+      // const { error } = await supabase.auth.signUp({
+      //   email: data.email,
+      //   password: data.password,
+      //   options: {
+      //     emailRedirectTo: `${window.location.origin}${paths.dashboard.root}`,
+      //     data: {
+      //       display_name: `${data.firstName} ${data.lastName}`,
+      //     },
+      //   },
+      // });
 
       const searchParams = new URLSearchParams({
         email: data.email,

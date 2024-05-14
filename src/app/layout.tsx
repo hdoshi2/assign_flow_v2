@@ -4,8 +4,8 @@ import 'src/global.css';
 
 import { primaryFont } from 'src/theme/typography';
 import { LocalizationProvider } from 'src/locales';
-import { AuthProvider } from 'src/auth/context/jwt';
 import ThemeProvider from 'src/theme/theme-provider';
+import { AuthProvider } from 'src/auth/context/supabase';
 import I18nProvider from 'src/locales/i18n-provider-local-storage';
 
 import Toaster from 'src/components/snackbar';
